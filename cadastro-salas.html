@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro de Salas</title>
+</head>
+<body>
+    <header>
+        <h1>Cadastro de Salas</h1>
+    </header>
+    <main>
+        <form id="form-sala">
+            <div>
+                <label for="nome">Nome da Sala (Ex: Sala 1):</label>
+                <input type="text" id="nome" required> [cite: 36]
+            </div>
+            <div>
+                <label for="capacidade">Capacidade:</label>
+                <input type="number" id="capacidade" required> [cite: 37]
+            </div>
+            <div>
+                <label for="tipo">Tipo:</label>
+                <select id="tipo"> [cite: 39]
+                    <option value="2D">2D</option>
+                    <option value="3D">3D</option>
+                    <option value="IMAX">IMAX</option>
+                </select>
+            </div>
+            <button type="submit">Salvar Sala</button> [cite: 40]
+        </form>
+    </main>
+
+    <script src="js/cadastro-salas.js"></script>
+</body>
+</html>

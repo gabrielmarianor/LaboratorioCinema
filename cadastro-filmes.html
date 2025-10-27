@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro de Filmes</title>
+</head>
+<body>
+    <header>
+        <h1>Cadastro de Filmes</h1>
+    </header>
+    <main>
+        <form id="form-filme">
+            <div>
+                <label for="titulo">Título:</label>
+                <input type="text" id="titulo" required> [cite: 27]
+            </div>
+            <div>
+                <label for="descricao">Descrição:</label>
+                <textarea id="descricao"></textarea> [cite: 28]
+            </div>
+            <div>
+                <label for="genero">Gênero:</label>
+                <select id="genero"> [cite: 29]
+                    <option value="Acao">Ação</option>
+                    <option value="Comedia">Comédia</option>
+                    <option value="Drama">Drama</option>
+                    <option value="Ficcao">Ficção Científica</option>
+                </select>
+            </div>
+            <div>
+                <label for="classificacao">Classificação Indicativa:</label>
+                <select id="classificacao"> [cite: 30]
+                    <option value="L">Livre</option>
+                    <option value="10">10 anos</option>
+                    <option value="12">12 anos</option>
+                    <option value="14">14 anos</option>
+                    <option value="16">16 anos</option>
+                    <option value="18">18 anos</option>
+                </select>
+            </div>
+            <div>
+                <label for="duracao">Duração (minutos):</label>
+                <input type="number" id="duracao"> [cite: 31]
+            </div>
+            <div>
+                <label for="dataEstreia">Data de Estreia:</label>
+                <input type="date" id="dataEstreia"> [cite: 32]
+            </div>
+            <button type="submit">Salvar Filme</button> [cite: 33]
+        </form>
+    </main>
+
+    <script src="js/cadastro-filmes.js"></script>
+</body>
+</html>
