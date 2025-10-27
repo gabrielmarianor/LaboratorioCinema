@@ -1,26 +1,20 @@
-// Este script tem DUAS responsabilidades:
-// 1. Carregar os filmes e salas nos <select>
-// 2. Salvar a nova sessão
-
 document.addEventListener('DOMContentLoaded', () => {
-    
-    // --- Responsabilidade 1: Carregar Dados nos <select> ---
     
     const selectFilme = document.getElementById('filme');
     const selectSala = document.getElementById('sala');
+    const form = document.getElementById('form-sessao');
 
-    // Carregar filmes [cite: 43]
-    const filmes = JSON.parse(localStorage.getItem('filmes')) || [];
+    // --- Carregar Filmes e Salas nos <select> ---
+    
+    const filmes = JSON.parse(localStorage.getItem('filmes')) || []; [cite: 41]
     filmes.forEach(filme => {
-        // Criação dinâmica de elementos <option> 
         const option = document.createElement('option');
         option.value = filme.id;
         option.textContent = filme.titulo; // O texto que o usuário vê
         selectFilme.appendChild(option);
     });
 
-    // Carregar salas [cite: 44]
-    const salas = JSON.parse(localStorage.getItem('salas')) || [];
+    const salas = JSON.parse(localStorage.getItem('salas')) || []; [cite: 42]
     salas.forEach(sala => {
         const option = document.createElement('option');
         option.value = sala.id;
@@ -28,16 +22,10 @@ document.addEventListener('DOMContentLoaded', () => {
         selectSala.appendChild(option);
     });
 
-    
-    // --- Responsabilidade 2: Salvar a Sessão ---
-    
-    const form = document.getElementById('form-sessao');
-
+    // --- Salvar a Sessão ---
     form.addEventListener('submit', (evento) => {
         evento.preventDefault();
 
-        // 1. Capturar dados
-        // (Aqui pegamos o ID do filme/sala que foi selecionado)
         const filmeId = document.getElementById('filme').value;
         const salaId = document.getElementById('sala').value;
         const dataHora = document.getElementById('dataHora').value;
@@ -45,28 +33,23 @@ document.addEventListener('DOMContentLoaded', () => {
         const idioma = document.getElementById('idioma').value;
         const formato = document.getElementById('formato').value;
 
-        // 2. Criar objeto
         const sessao = {
             id: new Date().getTime(),
-            filmeId, // Armazenamos o ID para "encadear" os dados [cite: 17]
-            salaId,  // Armazenamos o ID para "encadear" os dados [cite: 17]
+            filmeId,
+            salaId,
             dataHora,
             preco,
             idioma,
             formato
         };
 
-        // 3. Salvar no localStorage (chave: 'sessoes') [cite: 50]
-        const sessoes = JSON.parse(localStorage.getItem('sessoes')) || [];
+        const sessoes = JSON.parse(localStorage.getItem('sessoes')) || []; [cite: 48]
         sessoes.push(sessao);
-        localStorage.setItem('sessoes', JSON.stringify(sessoes));
+        localStorage.setItem('sessoes', JSON.stringify(sessoes)); [cite: 48]
         
-        // 4. Limpar e avisar
         alert('Sessão salva com sucesso!');
         form.reset();
         
-        // Recarrega os <select> para o estado inicial
-        // (Opcional, mas boa prática)
         selectFilme.value = "";
         selectSala.value = "";
     });
