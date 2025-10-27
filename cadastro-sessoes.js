@@ -6,7 +6,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Carregar Filmes e Salas nos <select> ---
     
-    const filmes = JSON.parse(localStorage.getItem('filmes')) || []; [cite: 41]
+    // Esta é a linha 9 (contando os espaços):
+    const filmes = JSON.parse(localStorage.getItem('filmes')) || [];
+    
     filmes.forEach(filme => {
         const option = document.createElement('option');
         option.value = filme.id;
@@ -14,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
         selectFilme.appendChild(option);
     });
 
-    const salas = JSON.parse(localStorage.getItem('salas')) || []; [cite: 42]
+    const salas = JSON.parse(localStorage.getItem('salas')) || [];
     salas.forEach(sala => {
         const option = document.createElement('option');
         option.value = sala.id;
@@ -43,9 +45,9 @@ document.addEventListener('DOMContentLoaded', () => {
             formato
         };
 
-        const sessoes = JSON.parse(localStorage.getItem('sessoes')) || []; [cite: 48]
+        const sessoes = JSON.parse(localStorage.getItem('sessoes')) || [];
         sessoes.push(sessao);
-        localStorage.setItem('sessoes', JSON.stringify(sessoes)); [cite: 48]
+        localStorage.setItem('sessoes', JSON.stringify(sessoes));
         
         alert('Sessão salva com sucesso!');
         form.reset();
